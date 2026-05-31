@@ -257,15 +257,15 @@ elif page=="Password Analyzer":
     for col,ex,lbl in [(e1,"123456","Very Weak"),(e2,"Hello2024","Moderate"),(e3,"qwerty","Keyboard Pattern"),(e4,"P@ssw0rd!XY99#","Strong")]:
         with col:
             if st.button(lbl,use_container_width=True,key=f"pe_{lbl}"):
-                st.session_state["_pex"]=ex; st.rerun()
+                st.session_state["pwd_f"]=ex; st.rerun()
 
     # Password input form
-    prefill=st.session_state.pop("_pex","")
+
     with st.form(key="pwd_form",clear_on_submit=False):
         c1f,c2f=st.columns([3,1])
         with c1f:
             username=st.text_input("Username or Email (optional)",placeholder="e.g. john@example.com",key="uname_f")
-            pwd=st.text_input("Password",value=prefill,placeholder="Enter password to analyse",type="password",key="pwd_f")
+            pwd = st.text_input("Password", placeholder="Enter password to analyse", type="password", key="pwd_f")
         with c2f:
             st.markdown("<br>",unsafe_allow_html=True)
             show_pw=st.checkbox("Show as text",key="show_pw_f")
