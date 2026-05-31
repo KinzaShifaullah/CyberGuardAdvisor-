@@ -34,7 +34,8 @@ def img_b64(path):
     except: return None
 
 import os
-HERO_IMG = img_b64(os.path.join(os.path.dirname(__file__), "assets", "hero2.jpeg"))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__)) if "__file__" in dir() else os.getcwd()
+HERO_IMG = img_b64(os.path.join(BASE_DIR, "assets", "hero2.jpeg"))
 
 # ── CSS ─────────────────────────────────────────────────────
 st.markdown("""
