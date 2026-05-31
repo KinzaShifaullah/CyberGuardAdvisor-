@@ -33,7 +33,8 @@ def img_b64(path):
         with open(path,"rb") as f: return base64.b64encode(f.read()).decode()
     except: return None
 
-HERO_IMG = img_b64("assets/hero2.jpeg")
+import os
+HERO_IMG = img_b64(os.path.join(os.path.dirname(__file__), "assets", "hero2.jpeg"))
 
 # ── CSS ─────────────────────────────────────────────────────
 st.markdown("""
